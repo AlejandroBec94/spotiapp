@@ -7,13 +7,16 @@ import {SpotifyService} from '../../services/spotify.service';
   templateUrl: './home.component.html',
   styles: []
 })
-export class HomeComponent  {
+export class HomeComponent {
 
-  paises: any[] = [];
+  albums: any[] = [];
 
-  constructor(private spotifyService: SpotifyService, ) {
+  constructor(private spotifyService: SpotifyService) {
 
-    this.spotifyService.getNewReleases();
+    this.spotifyService.getNewReleases().subscribe((response: any) => {
+      this.albums = response.albums.items;
+      console.log(response);
+    });
 
   }
 

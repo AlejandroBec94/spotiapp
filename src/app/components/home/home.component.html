@@ -1,5 +1,38 @@
-<ul>
-  <li *ngFor="let pais of paises">
-    {{ pais.name }} - {{ pais.population|number }}
-  </li>
-</ul>
+
+<div class="row">
+  <div class="col-lg-4 col-md-12 mb-4" *ngFor="let album of albums">
+
+    <!--Card-->
+    <div class="card card-cascade wider mb-4">
+
+      <!--Card image-->
+      <div class="view view-cascade">
+        <img [src]="album.images[0].url" class="card-img-top">
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+      <!--/Card image-->
+
+      <!--Card content-->
+      <div class="card-body card-body-cascade text-center">
+        <!--Title-->
+        <h4 class="card-title" style="color: #1ed760 !IMPORTANT;"><strong>{{ album.name }}</strong></h4>
+
+        <a class="badge badge-primary" *ngFor="let artist of album.artists" routerLink="">{{ artist.name }}</a>
+        <br>
+        <!--<h5 class="indigo-text" style="color: #136111 !IMPORTANT;"><strong>{{ album.artists[0].name }}</strong></h5>-->
+
+        <!--<p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque
+          laudantium, totam
+          rem aperiam.
+        </p>-->
+
+      </div>
+      <!--/.Card content-->
+
+    </div>
+    <!--/.Card-->
+
+  </div>
+</div>
